@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the "Project: Private Events" from the Ruby on Rails Course by The Odin Project. More at https://www.theodinproject.com/lessons/ruby-on-rails-private-events.
 
-Things you may want to cover:
+Purpose:  practice associations with Active Record in Rails. 
 
-* Ruby version
+What is this?: an event app, like Eventbrite! Users may create events. No styling or other features have been added.
 
-* System dependencies
+Ruby version: > v3.0
 
-* Configuration
+System dependencies: TBD
 
-* Database creation
+Configuration: TBD
 
-* Database initialization
+Database creation: TBD
 
-* How to run the test suite
+Database initialization: TBD
 
-* Services (job queues, cache servers, search engines, etc.)
+How to run the test suite: Likely no tests will be written in this app.
 
-* Deployment instructions
+Services (job queues, cache servers, search engines, etc.): TBD
 
-* ...
+Deployment instructions: TBD
