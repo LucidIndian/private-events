@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'rsvps/index'
-  get 'rsvps/accept'
-  get 'rsvps/refuse'
-
+ 
   get 'users/show'
   
   devise_for :users
@@ -11,4 +8,7 @@ Rails.application.routes.draw do
   resources :events, only: [ :new, :create, :show, :index ]
   
   resources :rsvps
+  get 'rsvps/accept'
+  get 'rsvps/refuse'
+  # get 'rsvps/index'
 end

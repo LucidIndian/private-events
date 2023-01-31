@@ -1,4 +1,12 @@
 <h1>All Events</h1>
+<% if current_user %>
+  <p>Welcome, back user :)</p>
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <p>Welcome, newbie!</p>
+  <%= link_to "Sign In", new_user_session_path, method: :get %>
+<% end %>
+
 
 <div id="events">
   <% @events.reverse_each do |event| %>
