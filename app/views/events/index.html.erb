@@ -1,2 +1,12 @@
-<h1>Events#index</h1>
-<p>Find me in app/views/events/index.html.erb</p>
+<h1>All Events</h1>
+
+<div id="events">
+  <% @events.reverse_each do |event| %>
+    <h4>Title: <%= event.title %></h4>
+      <p>Description: <%= event.description %> </p>
+      <p>Location: <%= event.location %></p>
+      <p>Date: <%= event.date %></p>
+    </ol>  
+    <hr>
+  <% end %>
+</div>
