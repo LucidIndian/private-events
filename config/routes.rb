@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :events, only: [ :new, :create, :show, :index ]
   
   resources :rsvps
+  post 'rsvps/accept'
   get 'rsvps/accept'
   get 'rsvps/refuse'
   # get 'rsvps/index'

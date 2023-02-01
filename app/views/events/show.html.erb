@@ -1,6 +1,9 @@
-<h2>Here's your event:</h2>
+<h2>Here's the event:</h2>
 <h4>Title: <%= @event.title %></h4>
 <ol>
   <li><%= @event.description %></li>
   <li><%= @event.date %></li>
 <ul>  
+
+
+  <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>

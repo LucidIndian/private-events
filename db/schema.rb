@@ -21,6 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_31_033107) do
     t.datetime "updated_at", null: false
   end
 
+  # The "through" table for the many-to-many relationship
   create_table "rsvps", force: :cascade do |t|
     t.integer "attendee_id"
     t.integer "attended_event_id"
