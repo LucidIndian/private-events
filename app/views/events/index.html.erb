@@ -1,10 +1,12 @@
 <h1>All Events</h1>
 <% if current_user %>
-  <p>Welcome, back user :)</p>
+  <p>Welcome, back <%= current_user.email %>!</p>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
 <% else %>
-  <p>Welcome, newbie!</p>
+  <p>Welcome, visitor!</p>
   <%= link_to "Sign In", new_user_session_path, method: :get %>
+  |
+  <%= link_to "Sign Up", new_user_registration_path, method: :get %>
 <% end %>
 
 

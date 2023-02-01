@@ -1,5 +1,9 @@
 <h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+ <p>Logged in as <%= current_user.email %></p>
+
 
 <h2>My Events</h2>
-<%# <%= @user.events%> %>
+Coming soon
+<%# <%= current_user.attended_events %>
+<hr>
+<%= link_to "Back to Home", events_path %>
