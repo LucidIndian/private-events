@@ -2,6 +2,8 @@
 <% if current_user %>
   <p>Welcome, back <%= current_user.email %>!</p>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+  <br>
+  <%= button_to "Create new event", new_event_path, method: :get %>
 <% else %>
   <p>Welcome, visitor!</p>
   <%= link_to "Sign In", new_user_session_path, method: :get %>
@@ -11,12 +13,11 @@
 
 
 <div id="events">
-  <% @events.reverse_each do |event| %>
-    <h4>Title: <%= event.title %></h4>
-      <p>Description: <%= event.description %> </p>
-      <p>Location: <%= event.location %></p>
-      <p>Date: <%= event.date %></p>
-    </ol>  
+  <% @events.reverse_each do |e| %>
+    <h4>Title: <%= e.title %></h4>
+      <p>Description: <%= e.description %> </p>
+      <p>Location: <%= e.location %></p>
+      <p>Date: <%= e.date %></p>
     <hr>
   <% end %>
 </div>
