@@ -2,9 +2,26 @@
  <p>Logged in as <%= current_user.email %></p>
 
 <h2>My Events</h2>
+<h2>Future</h2>
 <ul>
-  <% @user.attended_events.each do |a| %>
-  <li><%= a.title %></li>
+ <% future_events = @user.attended_events.where('date > ?', Date.today) %>
+  <% if future_events.any? then %>
+    <% future_events.each do |e| %>
+    <li><%= link_to e.title, e %></li>
+    <% end %>
+  <% else %>
+    <p>none here</P>
+  <% end %>
+</ul>  
+<h2>Past</h2>
+<ul>
+  <% past_events = @user.attended_events.where('date < ?', Date.today) %>
+  <% if past_events.any? then %>
+    <% past_events.each do |e| %>
+    <li><%= link_to e.title, e %></li>
+    <% end %>
+  <% else %>
+    <p>none here</P>
   <% end %>
 </ul>  
 
