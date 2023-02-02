@@ -1,7 +1,20 @@
 class Event < ApplicationRecord
-  # attr_accessor :
+  attr_reader :past, :upcoming
 
   belongs_to :creator, class_name: "User"
   has_many :rsvps, foreign_key: :attended_event_id
   has_many :attendees, through: :rsvps
+
+  # Class methods replaced by Scopes below:
+  def self.upcoming
+    return Event.all.where('date >= ?', Date.today).order(:date)
+  end
+
+  def self.past
+    return Event.all.where('date < ?', Date.today).order(:date)
+  end
+
+  # Scopes replace the class methods above
+  # scope :upcoming, -> { where('date >= ?', Date.today).order(:date) }
+  # scope :past, -> { where('date < ?', Date.today).order(:date) }
 end

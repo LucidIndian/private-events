@@ -1,4 +1,4 @@
-<h1>All Events</h1>
+<h1>Project: Private Events</h1>
 <% if current_user %>
   <p>Welcome, back <%= current_user.email %>!</p>
   <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
@@ -11,13 +11,22 @@
   <%= link_to "Sign Up", new_user_registration_path, method: :get %>
 <% end %>
 
-
-<div id="events">
-  <% @events.reverse_each do |e| %>
+<h2>Upcoming Events</h2>
+<div id="upcoming_events">
+  <% Event.upcoming.each do |e|  %>
     <h4>Title: <%= e.title %></h4>
       <p>Description: <%= e.description %> </p>
       <p>Location: <%= e.location %></p>
       <p>Date: <%= e.date %></p>
-    <hr>
-  <% end %>
+  <%end%>
+</div>
+
+<h2>Past Events</h2>
+<div id="past_events">
+  <% Event.past.each do |e|  %>
+    <h4>Title: <%= e.title %></h4>
+      <p>Description: <%= e.description %> </p>
+      <p>Location: <%= e.location %></p>
+      <p>Date: <%= e.date %></p>
+  <%end%>
 </div>
