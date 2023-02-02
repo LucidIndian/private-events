@@ -13,7 +13,7 @@
 
 <h2>Upcoming Events</h2>
 <div id="upcoming_events">
-  <% Event.upcoming.each do |e|  %>
+  <% Event.upcoming_scope.each do |e|  %>
     <h4>Title: <%= e.title %></h4>
       <p>Description: <%= e.description %> </p>
       <p>Location: <%= e.location %></p>
@@ -23,7 +23,7 @@
 
 <h2>Past Events</h2>
 <div id="past_events">
-  <% Event.past.each do |e|  %>
+  <% Event.past_scope.each do |e|  %>
     <h4>Title: <%= e.title %></h4>
       <p>Description: <%= e.description %> </p>
       <p>Location: <%= e.location %></p>
