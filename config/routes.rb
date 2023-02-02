@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root to: "events#index"
 
-  resources :events, only: [ :new, :create, :show, :index, :destroy ]
+  resources :events
   
   resources :rsvps
   post 'rsvps/accept'

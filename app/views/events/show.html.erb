@@ -4,10 +4,14 @@
   <li><%= @event.description %></li>
   <li><%= @event.date %></li>
 </ol>
-<%=link_to "Delete", event_path, method: :delete, class:"button", data: {
+
+<% if current_user == @event.creator %>
+<%=link_to "Delete event", event_path, method: :delete, class:"button", data: {
       turbo_method: :delete,
       turbo_confirm: "Are you sure?"
     } %>
+<% end %>
+
 
 <div class = "rsvp_button">
   <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
