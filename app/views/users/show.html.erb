@@ -2,7 +2,7 @@
  <p>Logged in as <%= current_user.email %></p>
 
 <h2>My Events</h2>
-<h2>Future</h2>
+<h2>Future RSVPs</h2>
 <ul>
  <% future_events = @user.attended_events.where('date > ?', Date.today) %>
   <% if future_events.any? then %>
@@ -13,7 +13,7 @@
     <p>none here</P>
   <% end %>
 </ul>  
-<h2>Past</h2>
+<h2>Past events</h2>
 <ul>
   <% past_events = @user.attended_events.where('date < ?', Date.today) %>
   <% if past_events.any? then %>
@@ -25,6 +25,7 @@
   <% end %>
 </ul>  
 
+<%# <h2>Created events</h2> %>
+
 <hr>
 <%= link_to "Back to Home", events_path %>
-

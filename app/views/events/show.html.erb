@@ -5,17 +5,30 @@
   <li><%= @event.date %></li>
 </ol>
 
-<% if current_user == @event.creator %>
+<%# Conditional buttons and links %>
+<%# <% if current_user == @event.creator %> 
+<div>
   <%=link_to "Edit event", edit_event_path %>
+</div>
   <%=link_to "Delete event", event_path, method: :delete, class:"button", data: {
         turbo_method: :delete,
         turbo_confirm: "Are you sure?"
       } %>
-<% else %>
-  <div class = "rsvp_button">
-    <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
+<%# <% elsif @event.attendees.include?(current_user) %> 
+
+<%# I think I have to write it differently when referenceing another model otusode fo the current one (Event) %>
+<%# 
+  <div class = "rsvp_delete_button">
+      <%= link_to 'Remove my RSVP', rsvp_path, method: :delete, class:"button", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure you don't want to attend this event?"
+        } %> 
   </div>
-<% end %>
+<%# <% else %> 
+  <div class = "rsvp_button">
+      <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
+  </div>
+<%# <% end %> 
 
 
 <h2>list of Attendees</h2>
