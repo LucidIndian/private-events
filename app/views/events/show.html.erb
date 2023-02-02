@@ -3,14 +3,17 @@
 <ol>
   <li><%= @event.description %></li>
   <li><%= @event.date %></li>
-</ol>  
+</ol>
+<%=link_to "Delete", event_path, method: :delete, class:"button", data: {
+      turbo_method: :delete,
+      turbo_confirm: "Are you sure?"
+    } %>
 
 <div class = "rsvp_button">
   <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
 </div>
 
 <h2>list of Attendees</h2>
-
 <ul>
   <% @event.attendees.each do |a| %>
   <li><%= a.email %></li>
