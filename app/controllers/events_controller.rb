@@ -33,7 +33,7 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
 
     if @event.update(event_params)
-      redirect_to @event
+      redirect_to @event, notice: 'Event successfully created'
     else
       render :edit, status: :unprocessable_entity
     end

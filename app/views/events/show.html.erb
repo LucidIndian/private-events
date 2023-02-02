@@ -6,16 +6,17 @@
 </ol>
 
 <% if current_user == @event.creator %>
-<%=link_to "Delete event", event_path, method: :delete, class:"button", data: {
-      turbo_method: :delete,
-      turbo_confirm: "Are you sure?"
-    } %>
+  <%=link_to "Edit event", edit_event_path %>
+  <%=link_to "Delete event", event_path, method: :delete, class:"button", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+<% else %>
+  <div class = "rsvp_button">
+    <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
+  </div>
 <% end %>
 
-
-<div class = "rsvp_button">
-  <%= button_to "RVSP for this event", rsvps_accept_path(event_id: @event.id) %>
-</div>
 
 <h2>list of Attendees</h2>
 <ul>
